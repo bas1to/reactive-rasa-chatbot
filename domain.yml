@@ -1,0 +1,50 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - sop_recommendation
+  - sop_practice
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+  - text: "Hi! How is it going?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_practice:
+  - text: "That's great, how can I help you with that?"
+  - text: "How can I help you with that?"
+
+  utter_check:
+  - text: "Of course, let me check."
+  - text: "Sure, let me look that up for you."
+
+  utter_recommendation:
+  - text: "I would recommend that you practice Advanced Life Support."
+  - text: "You should learn Advanced Life Support!"
+  - text: "What do you think about practicing Advanced Life Support?"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

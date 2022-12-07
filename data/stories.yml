@@ -45,17 +45,89 @@ stories:
   - action: utter_check
   - action: utter_recommendation
   - intent: no_reaction
+    entities:
+    - no_reaction: no reaction
+    - no_breathing: no normal breathing
+  - slot_was_set:
+    - no_reaction: no reaction
+  - slot_was_set:
+    - no_breathing: no normal breathing
   - intent: give_cpr
+    entities:
+    - cpr_given: giving CPR
+  - slot_was_set:
+    - cpr_given: giving CPR
   - intent: enhanced_measures
+    entities:
+    - measures: enhanced measures
+    - medication_access: access for medication
+    - ventilation: ventilation measures
+  - slot_was_set:
+    - measures: enhanced measures
+  - slot_was_set:
+    - medication_access: access for medication
+  - slot_was_set:
+    - ventilation: ventilation measures
   - intent: emergency_ecg
+    entities:
+    - ecg_diagnostics: emergency ECG diagnostics
+    - medication_administration: medication administration
+    - shock_administration: shock administration
+  - slot_was_set:
+    - ecg_diagnostics: emergency ECG diagnostics
+  - slot_was_set:
+    - medication_administration: medication administration
+  - slot_was_set:
+    - shock_administration: shock administration
   - intent: medication
+    entities:
+    - epinephrine: 1 mg epinephrine
+    - epinephrine: mg epinephrine
+  - slot_was_set:
+    - epinephrine: mg epinephrine
   - intent: finish
-  - action: utter_evaluation
+  - action: action_count_missing
   - intent: affirm
-  - action: utter_defibrillation
-  - action: utter_medication
+  - action: action_show_missing
   - intent: realization
   - action: utter_anything_else
   - intent: deny
   - intent: goodbye
   - action: utter_goodbye
+
+- story: evaluate and no mistakes
+  steps:
+  - intent: finish
+  - action: action_count_missing
+
+- story: evaluate and show
+  steps:
+  - intent: finish
+  - action: action_count_missing
+  - intent: affirm
+  - action: action_show_missing
+
+- story: evaluate and do not show
+  steps:
+  - intent: finish
+  - action: action_count_missing
+  - intent: deny
+  - action: utter_anything_else
+
+- story: show missing
+  steps:
+  - intent: show_missing
+  - action: action_show_missing
+
+- story: defibrillation and rinse
+  steps:
+  - intent: defibrillation
+    entities:
+    - defibrillation: defibrillation electrodes
+  - slot_was_set: 
+    - defibrillation: defibrillation electrodes
+  - intent: rinse
+    entities:
+    - defibrillation: rinse
+  - slot_was_set: 
+    - rinse: rinse

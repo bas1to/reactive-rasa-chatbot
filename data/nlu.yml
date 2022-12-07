@@ -7,6 +7,38 @@ nlu:
     - no breathing
     - not breathing normally
 
+- synonym: giving CPR
+  examples: |
+    - give CPR
+    - giving cardiac massage
+    - give cardiac massage
+    - giving chest compressions
+    - give chest compressions
+
+- synonym: access for medication
+  examples: |
+    - medication access
+    - drug access
+    - acces for drugs
+    - access for medicines
+
+- synonym: ventilation measures
+  examples: |
+    - ventilation
+    - advanced ventilation measures
+    - advanced ventilation
+
+- synonym: emergency ECG diagnostics
+  examples: |
+    - ecg diagnostics
+    - emergency ecg diagnostics
+    - emergency ecg
+
+- synonym: defibrillation electrodes
+  examples: |
+    - defibrillation
+    - defibrillator
+
 - intent: greet
   examples: |
     - hey
@@ -133,24 +165,34 @@ nlu:
 
 - intent: give_cpr
   examples: |
-    - I start giving CPR. I give chest compressions with ventilation at a ratio of 30:2.
-    - start giving cpr
+    - I start [giving CPR](cpr_given). I give chest compressions with ventilation at a ratio of 30:2.
+    - start [giving cpr](cpr_given)
 
 - intent: enhanced_measures
   examples: |
-    - Establish enhanced measures. Establish access for medication. Advanced ventilation measures.
-    - enhanced measures, medication, ventilation
+    - Establish [enhanced measures](measures). Establish [access for medication](medication_access). Advanced [ventilation measures](ventilation).
+    - [enhanced measures](measures), [medication access](medication_access), [ventilation](ventilation)
 
 - intent: emergency_ecg
   examples: |
-    - Next is emergency ECG diagnostics, medication administration, and shock administration if necessary. 
-    - emergency ecg diagnostics, medication, shock administration
+    - Next is [emergency ECG diagnostics](ecg_diagnostics), [medication administration](medication_administration), and [shock administration](shock_administration) if necessary. 
+    - [emergency ECG diagnostics](ecg_diagnostics), [medication administration](medication_administration), [shock administration](shock_administration)
 
 - intent: medication
   examples: |
-    - As medication, I give 1 mg epinephrine in a 10 ml syringe containing 1 mg epinephrine and 0.9 ml NaCl.
-    - 1 mg epinephrine in a 10 ml syringe
-    - 1 mg epinephrine
+    - As medication, I give [1 mg epinephrine](epinephrine) in a 10 ml syringe containing 1 mg epinephrine and 0.9 ml NaCl.
+    - [1 mg epinephrine](epinephrine) in a 10 ml syringe
+    - [1 mg epinephrine](epinephrine)
+
+- intent: defibrillation
+  examples: |
+    - Place and connect [defibrillation electrodes](defibrillation).
+    - connect [defibrillation electrodes](defibrillation)
+
+- intent: rinse
+  examples: |
+    - [rinse](rinse) with at least 20 mL NaCl 0.9% and elevate the extremity when administering peripherally.
+    - [rinse](rinse) with 20 ml NaCl 0.9%
 
 - intent: finish
   examples: |
@@ -166,3 +208,11 @@ nlu:
     - thats right
     - oh, thank you
     - thats true
+
+- intent: show_missing
+  examples: |
+    - Show me what I have missed.
+    - What did I do wrong?
+    - What have I missed?
+    - show missing
+    - show mistakes

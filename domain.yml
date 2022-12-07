@@ -18,10 +18,23 @@ intents:
   - medication
   - finish
   - realization
+  - defibrillation
+  - rinse
+  - show_missing
 
 entities:
 - no_reaction
 - no_breathing
+- cpr_given
+- measures
+- medication_access
+- ventilation
+- ecg_diagnostics
+- medication_administration
+- shock_administration
+- epinephrine
+- defibrillation
+- rinse
 
 slots:
   no_reaction:
@@ -34,6 +47,56 @@ slots:
     mappings:
     - type: from_entity
       entity: no_breathing
+  cpr_given:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: cpr_given
+  measures:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: measures
+  medication_access:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: medication_access
+  ventilation:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: ventilation
+  ecg_diagnostics:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: ecg_diagnostics
+  medication_administration:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: medication_administration
+  shock_administration:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: shock_administration
+  epinephrine:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: epinephrine
+  defibrillation:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: defibrillation
+  rinse:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: rinse
 
 forms:
   als_form:
@@ -90,6 +153,13 @@ responses:
 
   utter_anything_else:
   - text: "Can I do something else for you?"
+
+  utter_slops:
+  - text: "Reaction: {no_reaction}, Breathing: {no_breathing}, CPR: {cpr_given}, Measures: {measures}, Access: {medication_access}, Ventilation: {ventilation}, ECG: {ecg_diagnostics}, Medication Administration: {medication_administration}, Shock: {shock_administration}, Drugs: {epinephrine}"
+
+actions:
+- action_show_missing
+- action_count_missing
 
 session_config:
   session_expiration_time: 60

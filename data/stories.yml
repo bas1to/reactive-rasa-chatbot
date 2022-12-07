@@ -36,3 +36,26 @@ stories:
   - intent: sop_recommendation
   - action: utter_check
   - action: utter_recommendation
+
+- story: sample dialogue
+  steps:
+  - intent: greet_sop
+  - action: utter_greet_sop
+  - intent: sop_recommendation
+  - action: utter_check
+  - action: utter_recommendation
+  - intent: no_reaction
+  - intent: give_cpr
+  - intent: enhanced_measures
+  - intent: emergency_ecg
+  - intent: medication
+  - intent: finish
+  - action: utter_evaluation
+  - intent: affirm
+  - action: utter_defibrillation
+  - action: utter_medication
+  - intent: realization
+  - action: utter_anything_else
+  - intent: deny
+  - intent: goodbye
+  - action: utter_goodbye

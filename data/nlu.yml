@@ -1,6 +1,12 @@
 version: "3.1"
 
 nlu:
+- synonym: no normal breathing
+  examples: |
+    - not breathing
+    - no breathing
+    - not breathing normally
+
 - intent: greet
   examples: |
     - hey
@@ -48,6 +54,7 @@ nlu:
     - don't like that
     - no way
     - not really
+    - No, thank you.
 
 - intent: mood_great
   examples: |
@@ -98,6 +105,11 @@ nlu:
     - who are you?
     - who're you?
 
+- intent: greet_sop
+  examples: |
+    - Hello Avery. I would like to practice an SOP.
+    - Hi I want to practice
+
 - intent: sop_practice
   examples: |
     - I want to learn an SOP
@@ -112,3 +124,45 @@ nlu:
     - please tell me which one
     - which one should I practice?
     - which SOP sould I practice?
+
+- intent: no_reaction
+  examples: |
+    - The person shows [no reaction](no_reaction) and has [no normal breathing](no_breathing).
+    - [no reaction](no_reaction) and [no normal breathing](no_breathing)
+    
+
+- intent: give_cpr
+  examples: |
+    - I start giving CPR. I give chest compressions with ventilation at a ratio of 30:2.
+    - start giving cpr
+
+- intent: enhanced_measures
+  examples: |
+    - Establish enhanced measures. Establish access for medication. Advanced ventilation measures.
+    - enhanced measures, medication, ventilation
+
+- intent: emergency_ecg
+  examples: |
+    - Next is emergency ECG diagnostics, medication administration, and shock administration if necessary. 
+    - emergency ecg diagnostics, medication, shock administration
+
+- intent: medication
+  examples: |
+    - As medication, I give 1 mg epinephrine in a 10 ml syringe containing 1 mg epinephrine and 0.9 ml NaCl.
+    - 1 mg epinephrine in a 10 ml syringe
+    - 1 mg epinephrine
+
+- intent: finish
+  examples: |
+    - That's it. Did I miss something?
+    - thats it
+    - did I miss something?
+    - i'm finished
+    - im finished
+
+- intent: realization
+  examples: |
+    - Oh, that's right. Thank you.
+    - thats right
+    - oh, thank you
+    - thats true

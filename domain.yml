@@ -10,6 +10,36 @@ intents:
   - bot_challenge
   - sop_recommendation
   - sop_practice
+  - greet_sop
+  - no_reaction
+  - give_cpr
+  - enhanced_measures
+  - emergency_ecg
+  - medication
+  - finish
+  - realization
+
+entities:
+- no_reaction
+- no_breathing
+
+slots:
+  no_reaction:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: no_reaction
+  no_breathing:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: no_breathing
+
+forms:
+  als_form:
+    required_slots:
+      - no_reaction
+      - no_breathing
 
 responses:
   utter_greet:
@@ -27,10 +57,14 @@ responses:
   - text: "Great, carry on!"
 
   utter_goodbye:
+  - text: "See you soon!"
   - text: "Bye"
 
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
+
+  utter_greet_sop:
+  - text: "Hi Anna. That's great, how can I help you with that?"
 
   utter_practice:
   - text: "That's great, how can I help you with that?"
@@ -44,6 +78,18 @@ responses:
   - text: "I would recommend that you practice Advanced Life Support."
   - text: "You should learn Advanced Life Support!"
   - text: "What do you think about practicing Advanced Life Support?"
+
+  utter_evaluation:
+  - text: "That was already quite good. You forgot two things. Would you like to see what was missing?"
+
+  utter_defibrillation:
+  - text: "You forgot to place and connect the defibrillation electrodes."
+
+  utter_medication:
+  - text: "You also forgot to rinse with at least 20 mL NaCl 0.9% and elevate the extremity when administering peripherally."
+
+  utter_anything_else:
+  - text: "Can I do something else for you?"
 
 session_config:
   session_expiration_time: 60
